@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+import reducer from './reducers';
+import { ProductListViewContainer } from './components/ProductListView';
+import { ProductItemContainer } from './components/ProductItem';
+
+// create store
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleware(reducer);
+
+
+// create routes
+const routes = [
+  <Route path="/" exact component={ProductListViewContainer} />,
+  <Route path="/:itemid" exact component={ProductItemContainer} />,
+];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>{routes}</BrowserRouter>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.querySelector('#products-app'),
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
