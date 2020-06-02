@@ -17,7 +17,7 @@ const store = createStoreWithMiddleware(reducer);
 // create routes
 const routes = [
   <Route path="/" exact component={ProductListViewContainer} />,
-  <Route path="/:itemid" exact component={ProductItemContainer} />,
+  <Route path="/:item" exact component={ProductItemContainer} />,
 ];
 
 ReactDOM.render(

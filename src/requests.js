@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const ASYNC_TIMEOUT = 1000;
 
 const payloadData = {
@@ -172,40 +174,13 @@ const payloadData = {
   ]
 };
 
-export const loadCollectionRequest = (collectionName) => new Promise((resolve) => {
-  console.warn(process.env.REACT_APP_NOT_SECRET_CODE);
-  setTimeout(() => resolve(payloadData[collectionName]), ASYNC_TIMEOUT)
-});
+export const loadCollectionRequest = async (collectionName) => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/${collectionName}/`);
+  return response.data;
+};
 
 export const loadItemRequest = (collectionName, itemId) => new Promise((resolve) => {
   setTimeout(() => {
     resolve(payloadData[collectionName].find((item) => item.id === itemId));
   }, ASYNC_TIMEOUT);
-});
-
-export const putItemRequest = (collectionName, item) => new Promise((resolve) => {
-  setTimeout(() => {
-    payloadData[collectionName] = payloadData[collectionName].map(
-      (storedItem) => (storedItem.id === item.id ? item : storedItem),
-    );
-    resolve(payloadData[collectionName].find((storedItem) => item.id === storedItem.id));
-  }, ASYNC_TIMEOUT)
-});
-
-export const postItemRequest = (collectionName, item) => new Promise((resolve) => {
-  setTimeout(() => {
-    const newItem = Object.assign(item);
-    newItem.id = payloadData[collectionName].length + 1;
-    payloadData[collectionName] = payloadData[collectionName].concat([newItem]);
-    resolve(newItem);
-  }, ASYNC_TIMEOUT)
-});
-
-export const deleteItemRequest = (collectionName, itemId) => new Promise((resolve) => {
-  setTimeout(() => {
-    payloadData[collectionName] = payloadData[collectionName].filter(
-      (storedItem) => storedItem.id !== itemId,
-    );
-    resolve(itemId);
-  }, ASYNC_TIMEOUT)
 });
