@@ -1,23 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import reducer from './reducers';
-import { ProductListViewContainer } from './components/ProductListView';
-import { ProductItemContainer } from './components/ProductItem';
+import { ProductListViewContainer } from './components/product/ProductListView';
+import { TypeViewContainer } from "./components/producttype/ProductTypeView";
+import products from './slices/products';
+import productTypes from './slices/productTypes';
+import ui from './slices/ui';
+
+import './styles.css';
 
 // create store
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
-
+const store = configureStore({
+  reducer: {
+    products: products.reducer,
+    productTypes: productTypes.reducer,
+    ui: ui.reducer,
+  },
+  middleware: [thunk, ...getDefaultMiddleware()]
+});
 
 // create routes
 const routes = [
   <Route path="/" exact component={ProductListViewContainer} />,
-  <Route path="/:item" exact component={ProductItemContainer} />,
+  <Route path="/type" exact component={TypeViewContainer} />,
 ];
 
 ReactDOM.render(

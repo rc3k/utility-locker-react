@@ -1,0 +1,37 @@
+.product-transition-enter {
+    transition: 0.2s ease-in;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.product-transition-enter-active {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.product-transition-exit {
+    transition: 0.2s ease-out;
+    opacity: 1;
+    max-height: 100px;
+    overflow: hidden;
+    display: block;
+}
+
+.product-transition-exit-active {
+    max-height: 0;
+    opacity: 0;
+}
+
+.product-transition-exit > div {
+    height: 200px;
+}
+
+label {
+    width: 180px;
+    font-weight: bold;
+}
+
+select, .card-header {
+    cursor: pointer;
+}

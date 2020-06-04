@@ -5,16 +5,13 @@ const agent = new https.Agent({
   rejectUnauthorized: false
 });
 
-export const loadCollectionRequest = async (collectionName) => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/${collectionName}/`, {
-    httpsAgent: agent
-  });
-  return response.data;
-};
-
-export const loadItemRequest = async (collectionName, itemId) => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/${collectionName}/`, {
-    httpsAgent: agent
-  });
+export const loadCollectionRequest = async (collectionName, params) => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}/${collectionName.toLowerCase()}/`,
+    {
+      httpsAgent: agent,
+      params
+    }
+  );
   return response.data;
 };
