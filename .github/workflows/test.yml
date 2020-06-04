@@ -9,5 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run Tests
       run: |
-        npm install
+        rm -rf node_modules
+        npm install --force
         npm test
