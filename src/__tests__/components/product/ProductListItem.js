@@ -10,7 +10,7 @@ it('renders a single item correctly', () => {
         id: '123-X',
         name: 'Item one',
         description: 'Item description',
-        weight: 124,
+        weight: 123,
         price: {
           value: 156.98,
         },
