@@ -2,12 +2,12 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { productTypes } from '../../slices/productTypes';
-import { loadProducts, loadProductTypes, toggleAccordionAndLoad } from '../../slices/thunks';
+import { productTypes as productTypesSlice } from '../../slices/productTypes';
+import * as thunks from '../../slices/thunks';
 import { ui } from '../../slices/ui';
-import Preloader from "../Preloader";
-import ProductTypeItem from "./ProductTypeItem";
-import Header from "../Header";
+import Preloader from '../Preloader';
+import ProductTypeItem from './ProductTypeItem';
+import Header from '../Header';
 
 export class ProductTypeView extends React.Component {
   componentDidMount() {
@@ -16,7 +16,9 @@ export class ProductTypeView extends React.Component {
   }
 
   render() {
-    const { products, loadProducts, productTypes, openTypes, history, toggleAccordionAndLoad } = this.props;
+    const {
+      products, loadProducts, productTypes, openTypes, history, toggleAccordionAndLoad,
+    } = this.props;
     const { items, loading } = productTypes;
 
     if (loading) {
@@ -32,10 +34,10 @@ export class ProductTypeView extends React.Component {
           setSort={(column, direction) => loadProducts({ column, direction })}
           sortParams={products.params}
           groupByField="type"
-          setGroupBy={groupBy => history.push(`/${groupBy}`)}
+          setGroupBy={(groupBy) => history.push(`/${groupBy}`)}
         />
         <div className="list-group">
-          {items.allIds.map(itemId => (
+          {items.allIds.map((itemId) => (
             <ProductTypeItem
               key={itemId}
               item={items.byId[itemId]}
@@ -52,9 +54,9 @@ export class ProductTypeView extends React.Component {
 }
 
 export const TypeViewContainer = withRouter(
-  connect((state, ownProps) => ({
+  connect((state) => ({
     products: state.products,
     productTypes: state.productTypes,
     openTypes: state.ui.accordion.productTypes,
-  }), { ...productTypes.actions, ...ui.actions, ...{ loadProductTypes, loadProducts, toggleAccordionAndLoad } })(ProductTypeView),
+  }), { ...productTypesSlice.actions, ...ui.actions, ...thunks })(ProductTypeView),
 );

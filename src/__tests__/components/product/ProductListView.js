@@ -8,7 +8,7 @@ it('renders correctly when data is loading', () => {
   const listView = renderer.create(
     <Router>
       <ProductListView
-        products={{loading: true}}
+        products={{ loading: true }}
         loadProducts={() => {}}
       />
     </Router>,
@@ -17,7 +17,6 @@ it('renders correctly when data is loading', () => {
 });
 
 it('renders correctly when items have loaded', () => {
-
   const listView = renderer.create(
     <Router>
       <ProductListView
@@ -32,7 +31,7 @@ it('renders correctly when items have loaded', () => {
                   description: 'Item description',
                   weight: 123,
                   price: {
-                    value: 156.98
+                    value: 156.98,
                   },
                   type_name: 'Book',
                 },
@@ -42,16 +41,16 @@ it('renders correctly when items have loaded', () => {
                   description: 'Item description 2',
                   weight: 987,
                   price: {
-                    value: 1.23
+                    value: 1.23,
                   },
                   type_name: 'Electrical',
                 },
               },
-              allIds: ['123-X', '124-Y',],
+              allIds: ['123-X', '124-Y'],
             },
             params: {
               column: 'name',
-              direction: 'asc'
+              direction: 'asc',
             },
           }
         }

@@ -7,7 +7,7 @@ describe('product types slice', () => {
       items: {
         byId: {},
         allIds: [],
-        productIdsByType: {}
+        productIdsByType: {},
       },
       key: 'key',
       params: {},
@@ -16,18 +16,18 @@ describe('product types slice', () => {
   });
   it('should handle the loadProductTypes pending action', () => {
     expect(productTypesSlice.reducer(undefined, {
-      'type': loadProductTypes.pending,
-      'meta': {
+      type: loadProductTypes.pending,
+      meta: {
         arg: {
           column: 'department',
           type: 'electrical',
-        }
-      }
+        },
+      },
     })).toEqual({
       items: {
         byId: {},
         allIds: [],
-        productIdsByType: {}
+        productIdsByType: {},
       },
       key: 'key',
       params: {
@@ -39,21 +39,21 @@ describe('product types slice', () => {
   });
   it('should handle the loadProductTypes fulfilled action', () => {
     expect(productTypesSlice.reducer(undefined, {
-      'type': loadProductTypes.fulfilled,
-      'payload': [
+      type: loadProductTypes.fulfilled,
+      payload: [
         {
           key: 'item-1',
-          name: 'Item one'
+          name: 'Item one',
         },
         {
           key: 'item-2',
-          name: 'Item two'
+          name: 'Item two',
         },
         {
           key: 'item-3',
-          name: 'Item three'
-        }
-      ]
+          name: 'Item three',
+        },
+      ],
     })).toEqual({
       items: {
         allIds: [
@@ -75,7 +75,7 @@ describe('product types slice', () => {
             name: 'Item three',
           },
         },
-        productIdsByType: {}
+        productIdsByType: {},
       },
       key: 'key',
       params: {},
@@ -84,8 +84,8 @@ describe('product types slice', () => {
   });
   it('should handle the loadProduct fulfilled action', () => {
     expect(productTypesSlice.reducer(undefined, {
-      'type': loadProducts.fulfilled,
-      'payload': [
+      type: loadProducts.fulfilled,
+      payload: [
         {
           id: 'item-1',
           name: 'Item one',
@@ -100,16 +100,16 @@ describe('product types slice', () => {
           id: 'item-3',
           name: 'Item three',
           type: 'book',
-        }
-      ]
+        },
+      ],
     })).toEqual({
       items: {
         allIds: [],
         byId: {},
         productIdsByType: {
           electrical: ['item-1', 'item-2'],
-          book: ['item-3',]
-        }
+          book: ['item-3'],
+        },
       },
       key: 'key',
       params: {},

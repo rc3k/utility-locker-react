@@ -2,7 +2,7 @@ import axios from 'axios';
 import https from 'https';
 
 const agent = new https.Agent({
-  rejectUnauthorized: false
+  rejectUnauthorized: false,
 });
 
 export const loadCollectionRequest = async (collectionName, params) => {
@@ -10,8 +10,10 @@ export const loadCollectionRequest = async (collectionName, params) => {
     `${process.env.REACT_APP_API_URL}/${collectionName.toLowerCase()}/`,
     {
       httpsAgent: agent,
-      params
-    }
+      params,
+    },
   );
   return response.data;
 };
+
+export default loadCollectionRequest;

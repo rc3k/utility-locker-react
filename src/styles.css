@@ -35,3 +35,14 @@ label {
 select, .card-header {
     cursor: pointer;
 }
+
+.accordion-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.accordion-toggle:focus {
+    outline: none;
+}

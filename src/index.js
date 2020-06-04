@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import { ProductListViewContainer } from './components/product/ProductListView';
-import { TypeViewContainer } from "./components/producttype/ProductTypeView";
-import products from './slices/products';
-import productTypes from './slices/productTypes';
-import ui from './slices/ui';
+import { TypeViewContainer } from './components/producttype/ProductTypeView';
+import { products } from './slices/products';
+import { productTypes } from './slices/productTypes';
+import { ui } from './slices/ui';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ const store = configureStore({
     productTypes: productTypes.reducer,
     ui: ui.reducer,
   },
-  middleware: [thunk, ...getDefaultMiddleware()]
+  middleware: [thunk, ...getDefaultMiddleware()],
 });
 
 // create routes

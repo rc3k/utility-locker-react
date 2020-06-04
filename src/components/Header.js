@@ -1,8 +1,10 @@
 import React from 'react';
-import SortBySelect from "./SortBySelect";
-import GroupBySelect from "./GroupBySelect";
+import SortBySelect from './SortBySelect';
+import GroupBySelect from './GroupBySelect';
 
-export default ({heading, setSort, sortParams, groupByField, setGroupBy }) => (
+export default ({
+  heading, setSort, sortParams, groupByField, setGroupBy,
+}) => (
   <div className="row">
     <div className="col-md-6">
       <h1>{heading}</h1>

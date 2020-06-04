@@ -25,10 +25,13 @@ export const products = createSlice({
       state.params = { ...state.params, ...action.meta.arg }
     },
     [loadProducts.fulfilled]: (state, action) => {
-      state.items = { ...state.items, ...updateCollectionItems(state.items, action.payload, state.key) }
+      state.items = {
+        ...state.items,
+        ...updateCollectionItems(state.items, action.payload, state.key),
+      }
       state.loading = false;
-    }
-  }
+    },
+  },
 });
 
 export default products;

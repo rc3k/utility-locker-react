@@ -9,7 +9,7 @@ export const productTypes = createSlice({
     items: {
       byId: {},
       allIds: [],
-      productIdsByType: {}
+      productIdsByType: {},
     },
     key: 'key',
     params: {},
@@ -28,7 +28,7 @@ export const productTypes = createSlice({
     [loadProducts.fulfilled]: (state, action) => {
       state.items.productIdsByType = { ...state.items.productIdsByType, ...groupArrayKeysByProperty(action.payload, 'type', 'id') }
     },
-  }
+  },
 });
 
 export default productTypes;

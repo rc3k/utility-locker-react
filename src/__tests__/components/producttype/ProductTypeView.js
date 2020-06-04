@@ -8,7 +8,7 @@ it('renders correctly when data is loading', () => {
   const listView = renderer.create(
     <Router>
       <ProductTypeView
-        productTypes={{loading: true}}
+        productTypes={{ loading: true }}
         loadProductTypes={() => {}}
       />
     </Router>,
@@ -17,7 +17,6 @@ it('renders correctly when data is loading', () => {
 });
 
 it('renders correctly when items have loaded', () => {
-
   const listView = renderer.create(
     <Router>
       <ProductTypeView
@@ -26,20 +25,20 @@ it('renders correctly when items have loaded', () => {
           items: {
             allIds: ['book', 'electrical'],
             byId: {
-              ['book']: {
+              book: {
                 key: 'book',
                 value: 'Book',
               },
-              ['electrical']: {
+              electrical: {
                 key: 'electrical',
                 value: 'Electrical',
-              }
+              },
             },
             productIdsByType: {
               book: ['123-X'],
-              electrical: ['123-Y']
-            }
-          }
+              electrical: ['123-Y'],
+            },
+          },
         }}
         products={
           {
@@ -52,7 +51,7 @@ it('renders correctly when items have loaded', () => {
                   description: 'Item description',
                   weight: 123,
                   price: {
-                    value: 156.98
+                    value: 156.98,
                   },
                   type: 'book',
                   type_name: 'Book',
@@ -63,17 +62,17 @@ it('renders correctly when items have loaded', () => {
                   description: 'Item description 2',
                   weight: 987,
                   price: {
-                    value: 1.23
+                    value: 1.23,
                   },
                   type: 'electrical',
                   type_name: 'Electrical',
                 },
               },
-              allIds: ['123-X', '124-Y',],
+              allIds: ['123-X', '124-Y'],
             },
             params: {
               column: 'name',
-              direction: 'asc'
+              direction: 'asc',
             },
           }
         }

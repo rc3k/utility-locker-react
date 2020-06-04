@@ -92,17 +92,22 @@ exports[`renders correctly when items have loaded 1`] = `
     <div
       className="product-type-item card mb-3"
     >
-      <div
-        className="card-header justify-content-between d-flex"
+      <button
+        className="accordion-toggle"
         onClick={[Function]}
+        type="button"
       >
-        <span>
-          Book
-        </span>
-        <span>
-          +
-        </span>
-      </div>
+        <div
+          className="card-header justify-content-between d-flex"
+        >
+          <span>
+            Book
+          </span>
+          <span>
+            +
+          </span>
+        </div>
+      </button>
       <div
         className="container"
       >
@@ -112,17 +117,22 @@ exports[`renders correctly when items have loaded 1`] = `
     <div
       className="product-type-item card mb-3"
     >
-      <div
-        className="card-header justify-content-between d-flex"
+      <button
+        className="accordion-toggle"
         onClick={[Function]}
+        type="button"
       >
-        <span>
-          Electrical
-        </span>
-        <span>
-          +
-        </span>
-      </div>
+        <div
+          className="card-header justify-content-between d-flex"
+        >
+          <span>
+            Electrical
+          </span>
+          <span>
+            +
+          </span>
+        </div>
+      </button>
       <div
         className="container"
       >
