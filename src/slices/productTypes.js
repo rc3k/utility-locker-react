@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { updateCollectionItems, groupArrayKeysByProperty } from './lib';
 import { loadProducts, loadProductTypes } from './thunks';
@@ -22,7 +22,7 @@ export const productTypes = createSlice({
       state.params = { ...state.params, ...action.meta.arg }
     },
     [loadProductTypes.fulfilled]: (state, action) => {
-      state.items = { ...state.items, ...updateCollectionItems(state.items, action.payload, state.key) }
+      state.items = { ...state.items, ...updateCollectionItems(state.items, action.payload, 'key') }
       state.loading = false;
     },
     [loadProducts.fulfilled]: (state, action) => {

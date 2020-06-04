@@ -25,8 +25,8 @@ const store = configureStore({
 
 // create routes
 const routes = [
-  <Route path="/" exact component={ProductListViewContainer} />,
-  <Route path="/type" exact component={TypeViewContainer} />,
+  <Route path="/" exact component={ProductListViewContainer} key="main" />,
+  <Route path="/type" exact component={TypeViewContainer} key="type" />,
 ];
 
 ReactDOM.render(

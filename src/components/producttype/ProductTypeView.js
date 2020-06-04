@@ -17,7 +17,7 @@ export class ProductTypeView extends React.Component {
 
   render() {
     const { products, loadProducts, productTypes, openTypes, history, toggleAccordionAndLoad } = this.props;
-    const { items, loading, params } = productTypes;
+    const { items, loading } = productTypes;
 
     if (loading) {
       return (
@@ -37,6 +37,7 @@ export class ProductTypeView extends React.Component {
         <div className="list-group">
           {items.allIds.map(itemId => (
             <ProductTypeItem
+              key={itemId}
               item={items.byId[itemId]}
               isOpen={openTypes.includes(itemId)}
               toggleAccordionItemOpen={toggleAccordionAndLoad}

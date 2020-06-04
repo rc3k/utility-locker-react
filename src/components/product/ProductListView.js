@@ -34,7 +34,7 @@ export class ProductListView extends React.Component {
           setGroupBy={groupBy => history.push(`/${groupBy}`)}
         />
         <div className="list-group mt-2">
-          {items.allIds.map(itemId => <ProductListItem item={items.byId[itemId]} />)}
+          {items.allIds.map(itemId => <ProductListItem key={itemId} item={items.byId[itemId]} />)}
         </div>
       </div>
     );

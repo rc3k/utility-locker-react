@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when data is loading 1`] = `
+<div
+  className="loader"
+>
+  Loading...
+</div>
+`;
+
+exports[`renders correctly when items have loaded 1`] = `
+<div
+  className="list-view"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6"
+    >
+      <h1>
+        Product types
+      </h1>
+    </div>
+    <div
+      className="col-md-6"
+    >
+      <div
+        className="d-flex w-100 p-2"
+      >
+        <label
+          className="pt-2 pr-1 text-right"
+          htmlFor="sort-by-select"
+        >
+          Sort:
+        </label>
+        <select
+          className="form-control"
+          id="sort-by-select"
+          onChange={[Function]}
+          value="name_asc"
+        >
+          <option
+            value="name_asc"
+          >
+            Default (name)
+          </option>
+          <option
+            value="price_desc"
+          >
+            Highest price
+          </option>
+          <option
+            value="price_asc"
+          >
+            Lowest price
+          </option>
+        </select>
+      </div>
+      <div
+        className="d-flex w-100 form-group p-2"
+      >
+        <label
+          className="pt-2 pr-1 text-right"
+          htmlFor="group-by-select"
+        >
+          Group by:
+        </label>
+        <select
+          className="form-control"
+          id="group-by-select"
+          onChange={[Function]}
+          value="type"
+        >
+          <option
+            value=""
+          >
+            None
+          </option>
+          <option
+            value="type"
+          >
+            Type
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    className="list-group"
+  >
+    <div
+      className="product-type-item card mb-3"
+    >
+      <div
+        className="card-header justify-content-between d-flex"
+        onClick={[Function]}
+      >
+        <span>
+          Book
+        </span>
+        <span>
+          +
+        </span>
+      </div>
+      <div
+        className="container"
+      >
+        <div />
+      </div>
+    </div>
+    <div
+      className="product-type-item card mb-3"
+    >
+      <div
+        className="card-header justify-content-between d-flex"
+        onClick={[Function]}
+      >
+        <span>
+          Electrical
+        </span>
+        <span>
+          +
+        </span>
+      </div>
+      <div
+        className="container"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;

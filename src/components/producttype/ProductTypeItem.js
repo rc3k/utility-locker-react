@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import ProductListItem from '../product/ProductListItem';

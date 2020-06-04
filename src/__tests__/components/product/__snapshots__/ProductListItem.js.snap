@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a single item correctly 1`] = `
+<div
+  className="product-list-item list-group-item flex-column align-items-start mb-2"
+>
+  <div
+    className="d-flex w-100 justify-content-between"
+  >
+    <h5
+      className="mb-1"
+    >
+      Item one
+    </h5>
+    <div>
+      £
+      156.98
+    </div>
+  </div>
+  <p
+    className="mb-1"
+  >
+    Item description
+  </p>
+  <small>
+    <ul>
+      <li>
+        <span
+          className="font-weight-bold"
+        >
+          ID: 
+        </span>
+        123-X
+      </li>
+      <li>
+        <span
+          className="font-weight-bold"
+        >
+          Type: 
+        </span>
+        Book
+      </li>
+      <li>
+        <span
+          className="font-weight-bold"
+        >
+          Department: 
+        </span>
+      </li>
+      <li>
+        <span
+          className="font-weight-bold"
+        >
+          Weight: 
+        </span>
+        123
+        g
+      </li>
+    </ul>
+  </small>
+</div>
+`;
