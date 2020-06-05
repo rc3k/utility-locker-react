@@ -26,38 +26,6 @@ exports[`renders correctly when items have loaded 1`] = `
       className="col-md-6"
     >
       <div
-        className="d-flex w-100 p-2"
-      >
-        <label
-          className="pt-2 pr-1 text-right"
-          htmlFor="sort-by-select"
-        >
-          Sort:
-        </label>
-        <select
-          className="form-control"
-          id="sort-by-select"
-          onChange={[Function]}
-          value="name_asc"
-        >
-          <option
-            value="name_asc"
-          >
-            Default (name)
-          </option>
-          <option
-            value="price_desc"
-          >
-            Highest price
-          </option>
-          <option
-            value="price_asc"
-          >
-            Lowest price
-          </option>
-        </select>
-      </div>
-      <div
         className="d-flex w-100 form-group p-2"
       >
         <label

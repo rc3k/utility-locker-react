@@ -29,6 +29,7 @@ export class ProductListView extends React.Component {
         <Header
           heading="Products"
           setSort={(column, direction) => loadProducts({ column, direction })}
+          displaySort
           sortParams={params}
           groupByField=""
           setGroupBy={(groupBy) => history.push(`/${groupBy}`)}

@@ -26,6 +26,33 @@ exports[`renders correctly when items have loaded 1`] = `
       className="col-md-6"
     >
       <div
+        className="d-flex w-100 form-group p-2"
+      >
+        <label
+          className="pt-2 pr-1 text-right"
+          htmlFor="group-by-select"
+        >
+          Group by:
+        </label>
+        <select
+          className="form-control"
+          id="group-by-select"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            None
+          </option>
+          <option
+            value="type"
+          >
+            Type
+          </option>
+        </select>
+      </div>
+      <div
         className="d-flex w-100 p-2"
       >
         <label
@@ -54,33 +81,6 @@ exports[`renders correctly when items have loaded 1`] = `
             value="price_asc"
           >
             Lowest price
-          </option>
-        </select>
-      </div>
-      <div
-        className="d-flex w-100 form-group p-2"
-      >
-        <label
-          className="pt-2 pr-1 text-right"
-          htmlFor="group-by-select"
-        >
-          Group by:
-        </label>
-        <select
-          className="form-control"
-          id="group-by-select"
-          onChange={[Function]}
-          value=""
-        >
-          <option
-            value=""
-          >
-            None
-          </option>
-          <option
-            value="type"
-          >
-            Type
           </option>
         </select>
       </div>

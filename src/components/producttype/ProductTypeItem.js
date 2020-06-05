@@ -1,10 +1,10 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import ProductListItem from '../product/ProductListItem';
+import GroupedProducts from './GroupedProducts';
 
 export default ({
-  item, toggleAccordionItemOpen, isOpen, products, productIds,
+  item, toggleAccordionItemOpen, isOpen, products, productIds, loadProducts, typeParams,
 }) => (
   <div className="product-type-item card mb-3">
     <button
@@ -30,14 +30,13 @@ export default ({
       <div className="container">
         {item.key in productIds && isOpen
           ? (
-            <div className="p-4">
-              {productIds[item.key].map((itemId) => (
-                <ProductListItem
-                  key={itemId}
-                  item={products[itemId]}
-                />
-              ))}
-            </div>
+            <GroupedProducts
+              item={item}
+              products={products}
+              productIds={productIds}
+              loadProducts={loadProducts}
+              typeParams={typeParams}
+            />
           )
           : <div />}
       </div>

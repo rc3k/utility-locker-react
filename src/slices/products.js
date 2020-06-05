@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { updateCollectionItems } from './lib';
-import { loadProducts } from './thunks';
+import { loadProducts, loadProductsByType } from './thunks';
 
 
 export const products = createSlice({
@@ -30,6 +30,12 @@ export const products = createSlice({
         ...updateCollectionItems(state.items, action.payload, state.key),
       }
       state.loading = false;
+    },
+    [loadProductsByType.fulfilled]: (state, action) => {
+      state.items = {
+        ...state.items,
+        ...updateCollectionItems(state.items, action.payload, state.key),
+      }
     },
   },
 });

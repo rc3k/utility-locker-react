@@ -19,11 +19,19 @@ export const loadProductTypes = createAsyncThunk(
   },
 )
 
+export const loadProductsByType = createAsyncThunk(
+  'productsbytype/load',
+  async (params = {}, thunkAPI) => {
+    const requestParams = { ...thunkAPI.getState().products.params, ...params }
+    return loadCollectionRequest('products', requestParams);
+  },
+)
+
 export const toggleAccordionAndLoad = createAsyncThunk(
   'accordion/load',
   async (payload = {}, thunkAPI) => {
     if (!thunkAPI.getState().ui.accordion[payload.name].includes(payload.itemId)) {
-      thunkAPI.dispatch(loadProducts({
+      thunkAPI.dispatch(loadProductsByType({
         type: payload.itemId,
       }));
     }

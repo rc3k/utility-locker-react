@@ -1,5 +1,5 @@
 import productTypesSlice from '../../slices/productTypes';
-import { loadProductTypes, loadProducts } from '../../slices/thunks';
+import { loadProductTypes, loadProductsByType } from '../../slices/thunks';
 
 describe('product types slice', () => {
   it('should return the initial state', () => {
@@ -11,6 +11,7 @@ describe('product types slice', () => {
       },
       key: 'key',
       params: {},
+      typeParams: {},
       loading: false,
     });
   });
@@ -30,10 +31,8 @@ describe('product types slice', () => {
         productIdsByType: {},
       },
       key: 'key',
-      params: {
-        column: 'department',
-        type: 'electrical',
-      },
+      params: {},
+      typeParams: {},
       loading: true,
     });
   });
@@ -79,12 +78,56 @@ describe('product types slice', () => {
       },
       key: 'key',
       params: {},
+      typeParams: {
+        'item-1': {
+          column: 'name',
+          direction: 'asc',
+        },
+        'item-2': {
+          column: 'name',
+          direction: 'asc',
+        },
+        'item-3': {
+          column: 'name',
+          direction: 'asc',
+        },
+      },
       loading: false,
     });
   });
-  it('should handle the loadProduct fulfilled action', () => {
+
+  it('should handle the loadProductsByType pending action', () => {
     expect(productTypesSlice.reducer(undefined, {
-      type: loadProducts.fulfilled,
+      type: loadProductsByType.pending,
+      meta: {
+        arg: {
+          type: 'book',
+          column: 'price',
+          direction: 'desc',
+        },
+      },
+    })).toEqual({
+      items: {
+        allIds: [],
+        byId: {},
+        productIdsByType: {},
+      },
+      key: 'key',
+      params: {},
+      loading: false,
+      typeParams: {
+        book: {
+          type: 'book',
+          column: 'price',
+          direction: 'desc',
+        },
+      },
+
+    });
+  });
+  it('should handle the loadProductsByType fulfilled action', () => {
+    expect(productTypesSlice.reducer(undefined, {
+      type: loadProductsByType.fulfilled,
       payload: [
         {
           id: 'item-1',
@@ -96,11 +139,6 @@ describe('product types slice', () => {
           name: 'Item two',
           type: 'electrical',
         },
-        {
-          id: 'item-3',
-          name: 'Item three',
-          type: 'book',
-        },
       ],
     })).toEqual({
       items: {
@@ -108,12 +146,12 @@ describe('product types slice', () => {
         byId: {},
         productIdsByType: {
           electrical: ['item-1', 'item-2'],
-          book: ['item-3'],
         },
       },
       key: 'key',
       params: {},
       loading: false,
+      typeParams: {},
     });
   });
 });

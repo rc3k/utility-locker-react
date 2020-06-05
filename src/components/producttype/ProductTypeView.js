@@ -17,9 +17,9 @@ export class ProductTypeView extends React.Component {
 
   render() {
     const {
-      products, loadProducts, productTypes, openTypes, history, toggleAccordionAndLoad,
+      products, productTypes, openTypes, history, toggleAccordionAndLoad, loadProductsByType,
     } = this.props;
-    const { items, loading } = productTypes;
+    const { items, loading, typeParams } = productTypes;
 
     if (loading) {
       return (
@@ -31,7 +31,6 @@ export class ProductTypeView extends React.Component {
       <div className="list-view">
         <Header
           heading="Product types"
-          setSort={(column, direction) => loadProducts({ column, direction })}
           sortParams={products.params}
           groupByField="type"
           setGroupBy={(groupBy) => history.push(`/${groupBy}`)}
@@ -42,9 +41,11 @@ export class ProductTypeView extends React.Component {
               key={itemId}
               item={items.byId[itemId]}
               isOpen={openTypes.includes(itemId)}
-              toggleAccordionItemOpen={toggleAccordionAndLoad}
               productIds={items.productIdsByType}
               products={products.items.byId}
+              typeParams={typeParams}
+              toggleAccordionItemOpen={toggleAccordionAndLoad}
+              loadProducts={(params) => loadProductsByType(params)}
             />
           ))}
         </div>
